@@ -6,4 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes: []
   m_configObjects:
+    AR Foundation RemoteARFoundationRemoteLoaderSettings: {fileID: 11400000, guid: 56598780e3008ee4e814c0c017a94c57, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 14ae57336f7f09449827356e2ebe7404, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a517a57a93707154c868a2ef280e962f, type: 2}
