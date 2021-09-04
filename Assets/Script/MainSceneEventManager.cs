@@ -9,15 +9,29 @@ public class MainSceneEventManager : SingletonBehavior<MainSceneEventManager>
     private GameObject AR_Objects = null;
 
     public Action StartArEvent = null;
-    public Action<bool> AR_SetActiveAction = null;
+    public Action OnArSessionActivated = null;
+    public Action OnArSessionDeActivated = null;
 
-    public void SetAR_Active(bool isActive)
+    [SerializeField]
+    private UP_AREvent arEvent = null;
+
+    public void ArSessionOn()
     {
-        AR_Objects.gameObject.SetActive(isActive);
-
-        if(AR_SetActiveAction != null)
+        if(OnArSessionActivated != null)
         {
-            AR_SetActiveAction.Invoke(isActive);
+            OnArSessionActivated.Invoke();
         }
+
+        AR_Objects.SetActive(true);
+    }
+
+    public void ArSessionOff()
+    {
+        if(OnArSessionDeActivated != null)
+        {
+            OnArSessionDeActivated.Invoke();
+        }
+
+        AR_Objects.SetActive(false);
     }
 }

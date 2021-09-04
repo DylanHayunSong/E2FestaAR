@@ -19,6 +19,7 @@ public class UP_Main : UP_BasePage
 
         buttonsCompo.InfoBtnClickAction += OnClick_InfoBtn;
         buttonsCompo.arBtnClickAction += OnClick_AREventBtn;
+        MainSceneEventManager.inst.OnArSessionActivated += () => { gameObject.SetActive(false); };
     }
 
     private void OnClick_InfoBtn()
@@ -28,7 +29,7 @@ public class UP_Main : UP_BasePage
 
     private void OnClick_AREventBtn()
     {
-        MainSceneEventManager.inst.AR_SetActiveAction(true);
+        MainSceneEventManager.inst.ArSessionOn();
         gameObject.SetActive(false);
     }
 }
