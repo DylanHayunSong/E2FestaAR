@@ -15,10 +15,12 @@ public class SingletonBehavior<T> : MonoBehaviour where T : SingletonBehavior<T>
         {
             inst = (T)this;
             DontDestroyOnLoad(this.gameObject);
+
+            Init();
         } 
     }
 
-    protected virtual void Initialize()
+    protected virtual void Init()
     {
 
     }
