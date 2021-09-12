@@ -23,5 +23,25 @@ MonoBehaviour:
       m_GuidHigh: 9253939185233179675
     m_Size: {x: 0, y: 0}
     m_SpecifySize: 0
-    m_Name: EmblemTest
+    m_Name: Emblem
     m_Texture: {fileID: 2800000, guid: 97c65a61e60441241b34e4d4a8986c80, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5390121159392141425
+      m_GuidHigh: 15951671996527028886
+    m_SerializedTextureGuid:
+      m_GuidLow: 311896868807764545
+      m_GuidHigh: 14393390494991280666
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: HomePage01
+    m_Texture: {fileID: 2800000, guid: b7d7ea41148c04541a6a704f6598bfc7, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4792024495395851822
+      m_GuidHigh: 9961579780706982291
+    m_SerializedTextureGuid:
+      m_GuidLow: 14791135515611365350
+      m_GuidHigh: 7770377998546640762
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: EmblemTest
+    m_Texture: {fileID: 2800000, guid: 78adffe6ab62cd447a1fe2d59eedd56b, type: 3}

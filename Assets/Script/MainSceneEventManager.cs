@@ -17,6 +17,8 @@ public class MainSceneEventManager : SingletonBehavior<MainSceneEventManager>
     public Action<RenderTexture> OnAnimRTUpdated = null;
     public Action OnCaptureBtnClicked = null;
 
+    public Action OnUserInformationUpdated = null;
+
     protected override void Init ()
     {
         mainCanvas.gameObject.SetActive(true);

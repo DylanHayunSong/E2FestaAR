@@ -20,7 +20,7 @@ public class UP_AREvent : UP_BasePage
 
         MainSceneEventManager.inst.OnAnimRTUpdated += AnimVideoSetRT;
 
-        welcomeAnim = AnimObjs[(int)Random.Range(0, 2)].GetComponent<WelcomeAnim>();
+        welcomeAnim = AnimObjs[(int)Random.Range(0,3)].GetComponent<WelcomeAnim>();
         welcomeAnim.gameObject.SetActive(true);
         welcomeAnim.StartAnim();
 
