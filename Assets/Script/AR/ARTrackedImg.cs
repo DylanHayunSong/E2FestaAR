@@ -18,6 +18,6 @@ public class ARTrackedImg : MonoBehaviour
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         toActiveObj.SetActive(true);
-        MainSceneEventManager.inst.ArSessionOff();
+        EventManager.inst.ArSessionOff();
     }
 }

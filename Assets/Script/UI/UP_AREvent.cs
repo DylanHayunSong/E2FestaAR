@@ -14,17 +14,17 @@ public class UP_AREvent : UP_BasePage
 
     private WelcomeAnim welcomeAnim = null;
 
-    protected override void Awake ()
+    public override void BindDelegates ()
     {
-        base.Awake();
+        base.BindDelegates();
 
-        MainSceneEventManager.inst.OnAnimRTUpdated += AnimVideoSetRT;
+        EventManager.inst.OnAnimRTUpdated += AnimVideoSetRT;
 
-        welcomeAnim = AnimObjs[(int)Random.Range(0,3)].GetComponent<WelcomeAnim>();
+        welcomeAnim = AnimObjs[(int)Random.Range(0, AnimObjs.Length)].GetComponent<WelcomeAnim>();
         welcomeAnim.gameObject.SetActive(true);
         welcomeAnim.StartAnim();
 
-        MainSceneEventManager.inst.OnWelcomeAnimDone += OnWelcomeAnimDone;
+        EventManager.inst.OnWelcomeAnimDone += OnWelcomeAnimDone;
 
         captureBtn.onClick.AddListener(OnClick_Capture);
     }
@@ -42,8 +42,6 @@ public class UP_AREvent : UP_BasePage
     private void OnClick_Capture ()
     {
         gameObject.SetActive(false);
-        MainSceneEventManager.inst.CaptureBtnClicked();
+        EventManager.inst.CaptureBtnClicked();
     }
-
-
 }

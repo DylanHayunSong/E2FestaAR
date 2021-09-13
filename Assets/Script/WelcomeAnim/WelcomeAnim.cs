@@ -42,9 +42,9 @@ public class WelcomeAnim : MonoBehaviour
 
     public void AnimDone()
     {
-        if (MainSceneEventManager.inst.OnWelcomeAnimDone != null)
+        if (EventManager.inst.OnWelcomeAnimDone != null)
         {
-            MainSceneEventManager.inst.OnWelcomeAnimDone.Invoke();
+            EventManager.inst.OnWelcomeAnimDone.Invoke();
         }
     }
 
@@ -54,6 +54,6 @@ public class WelcomeAnim : MonoBehaviour
         //animCam.targetTexture = newRT;
         animCam.targetTexture.width = Screen.width;
         animCam.targetTexture.height = (int)(Screen.height * 0.8f);
-        MainSceneEventManager.inst.AnimRTUpdate(animCam.targetTexture);
+        EventManager.inst.AnimRTUpdate(animCam.targetTexture);
     }
 }

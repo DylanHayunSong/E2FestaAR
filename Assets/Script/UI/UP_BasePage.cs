@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class UP_BasePage : MonoBehaviour
 {
-    private List<UC_BaseComponent> components = new List<UC_BaseComponent>();
-
-    protected virtual void Awake ()
+    public virtual void BindDelegates()
     {
-        for(int i = 0; i < transform.childCount; i++)
+        UC_BaseComponent[] children = transform.GetComponentsInChildren<UC_BaseComponent>(true);
+        foreach(UC_BaseComponent elem in children)
         {
-
-            if(transform.GetChild(i).GetComponent<UC_BaseComponent>() != null)
-            {
-                components.Add(transform.GetChild(i).GetComponent<UC_BaseComponent>());
-            }
-        }
-
-        foreach(UC_BaseComponent compo in components)
-        {
-            compo.parentPage = this;
-            compo.BindDelegates();
+            elem.parentPage = this;
+            elem.BindDelegates();
         }
     }
 }
