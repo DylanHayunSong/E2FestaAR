@@ -19,5 +19,6 @@ public class ARTrackedImg : MonoBehaviour
     {
         toActiveObj.SetActive(true);
         EventManager.inst.ArSessionOff();
+        EventManager.inst.StartWelcomeAnim();
     }
 }

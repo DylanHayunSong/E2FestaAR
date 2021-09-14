@@ -27,7 +27,7 @@ public class WelcomeAnim : MonoBehaviour
         //originalMainCamera.gameObject.SetActive(false);
         SetAnimCamRT();
 
-        Invoke("AnimDone", 5);
+        //Invoke("AnimDone", 5);
     }
 
     public void SetWelcomeText (string text)
@@ -51,9 +51,8 @@ public class WelcomeAnim : MonoBehaviour
     private void SetAnimCamRT()
     {
         //RenderTexture newRT = new RenderTexture(Screen.width, (int)(Screen.height * 0.8f), 0);
+
         //animCam.targetTexture = newRT;
-        animCam.targetTexture.width = Screen.width;
-        animCam.targetTexture.height = (int)(Screen.height * 0.8f);
         EventManager.inst.AnimRTUpdate(animCam.targetTexture);
     }
 }

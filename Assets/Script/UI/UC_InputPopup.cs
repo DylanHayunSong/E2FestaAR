@@ -61,11 +61,12 @@ public class UC_InputPopup : UC_BaseComponent
     public override void BindDelegates ()
     {
         nextBtn.onClick.AddListener(OnClickNext);
+        inputContact.onValueChanged.AddListener(OnContactChanged);
 
         Init();
     }
 
-    private void Init()
+    private void Init ()
     {
         companyIcon.gameObject.SetActive(false);
         contactIcon.gameObject.SetActive(false);
@@ -107,13 +108,39 @@ public class UC_InputPopup : UC_BaseComponent
             case InputState.message:
                 Disable();
 
-                inputState = InputState.done;
-                break;
-            case InputState.done:
-                
+                if (finalBtnClickActin != null)
+                {
+                    finalBtnClickActin.Invoke();
+                }
+
                 break;
         }
         Invoke("NextBtnEnable", enableDuration);
+    }
+
+    private void OnContactChanged (string value)
+    {
+        string result = value;
+        string nummeric = result.Replace("-", "");
+        if (nummeric.Length >= 4 && nummeric.Length < 8)
+        {
+            result = nummeric.Insert(3, "-");
+            inputContact.text = result;
+            inputContact.caretPosition = result.Length;
+        }
+        else if (nummeric.Length >= 8)
+        {
+            result = nummeric.Insert(7, "-").Insert(3, "-");
+            inputContact.text = result;
+            inputContact.caretPosition = result.Length;
+        }
+        else
+        {
+            result = nummeric;
+            inputContact.text = result;
+            inputContact.caretPosition = result.Length;
+        }
+
     }
 
     private void NextBtnEnable ()

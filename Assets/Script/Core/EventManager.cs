@@ -9,6 +9,10 @@ public class EventManager : SingletonBehavior<EventManager>
     private Canvas mainCanvas = null;
     [SerializeField]
     private GameObject AR_Objects = null;
+    [SerializeField]
+    private GameObject[] AnimObjs = null;
+    [SerializeField]
+    private WelcomeAnim welcomeAnim = null;
 
     public Action StartArEvent = null;
     public Action OnArSessionActivated = null;
@@ -23,6 +27,7 @@ public class EventManager : SingletonBehavior<EventManager>
     {
         base.Awake();
 
+        AR_Objects.gameObject.SetActive(false);
         InitializeUI();
     }
     private void InitializeUI()
@@ -32,6 +37,11 @@ public class EventManager : SingletonBehavior<EventManager>
         {
             elem.BindDelegates();
         }
+
+        mainCanvas.transform.GetChild(0).gameObject.SetActive(true);
+        mainCanvas.transform.GetChild(1).gameObject.SetActive(false);
+        mainCanvas.transform.GetChild(2).gameObject.SetActive(false);
+        mainCanvas.transform.GetChild(3).gameObject.SetActive(false);
     }
 
     public void ArSessionOn()
@@ -41,6 +51,7 @@ public class EventManager : SingletonBehavior<EventManager>
             OnArSessionActivated.Invoke();
         }
 
+        mainCanvas.transform.GetChild(1).gameObject.SetActive(true);
         AR_Objects.SetActive(true);
     }
 
@@ -50,9 +61,18 @@ public class EventManager : SingletonBehavior<EventManager>
         {
             OnArSessionDeActivated.Invoke();
         }
+        mainCanvas.transform.GetChild(1).gameObject.SetActive(false);
 
         AR_Objects.SetActive(false);
     }
+
+    public void StartWelcomeAnim()
+    {
+        welcomeAnim = AnimObjs[(int)UnityEngine.Random.Range(0, AnimObjs.Length)].GetComponent<WelcomeAnim>();
+        welcomeAnim.gameObject.SetActive(true);
+        welcomeAnim.StartAnim();
+    }
+
 
     public void AnimRTUpdate(RenderTexture rt)
     {
