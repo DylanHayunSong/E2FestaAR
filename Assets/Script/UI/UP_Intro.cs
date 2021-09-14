@@ -11,7 +11,7 @@ public class UP_Intro : UP_BasePage
     [SerializeField]
     private UC_InputPopup inputPopup;
     [SerializeField]
-    private UC_StartEventComponent startAR;
+    private UC_IntroEnd startAR;
 
     public Action OnClickStartAR;
 

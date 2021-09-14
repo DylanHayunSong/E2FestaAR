@@ -79,9 +79,18 @@ public class UC_InputPopup : UC_BaseComponent
     private void OnClickNext ()
     {
         nextBtn.interactable = false;
+        Invoke("NextBtnEnable", enableDuration);
+
         switch (inputState)
         {
             case InputState.name:
+                if(string.IsNullOrEmpty(inputName.text))
+                {
+                    EventManager.inst.Alert("이름을 ");
+                    return;
+                }
+
+                inputName.interactable = false;
                 StartCoroutine(EnableObjRoutine(companyIcon.gameObject));
                 StartCoroutine(EnableObjRoutine(inputCompany.transform.parent.gameObject, true));
 
@@ -90,6 +99,13 @@ public class UC_InputPopup : UC_BaseComponent
                 inputState = InputState.company;
                 break;
             case InputState.company:
+                if (string.IsNullOrEmpty(inputCompany.text))
+                {
+                    EventManager.inst.Alert("소속을 ");
+                    return;
+                }
+
+                inputCompany.interactable = false;
                 StartCoroutine(EnableObjRoutine(contactIcon.gameObject));
                 StartCoroutine(EnableObjRoutine(inputContact.transform.parent.gameObject, true));
 
@@ -98,6 +114,13 @@ public class UC_InputPopup : UC_BaseComponent
                 inputState = InputState.contact;
                 break;
             case InputState.contact:
+                if (string.IsNullOrEmpty(inputContact.text))
+                {
+                    EventManager.inst.Alert("연락처를 ");
+                    return;
+                }
+
+                inputContact.interactable = false;
                 StartCoroutine(EnableObjRoutine(messageIcon.gameObject));
                 StartCoroutine(EnableObjRoutine(inputMessage.transform.parent.gameObject, true));
 
@@ -106,6 +129,12 @@ public class UC_InputPopup : UC_BaseComponent
                 inputState = InputState.message;
                 break;
             case InputState.message:
+                if (string.IsNullOrEmpty(inputMessage.text))
+                {
+                    EventManager.inst.Alert("응원 메시지를 ");
+                    return;
+                }
+
                 Disable();
 
                 if (finalBtnClickActin != null)
@@ -113,9 +142,15 @@ public class UC_InputPopup : UC_BaseComponent
                     finalBtnClickActin.Invoke();
                 }
 
+                UpdateUserData();
+
                 break;
         }
-        Invoke("NextBtnEnable", enableDuration);
+    }
+
+    private void UpdateUserData()
+    {
+        UserDataManager.inst.SetUserData(inputName.text, inputCompany.text, inputContact.text, inputMessage.text);
     }
 
     private void OnContactChanged (string value)

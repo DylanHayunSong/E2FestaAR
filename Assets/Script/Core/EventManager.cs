@@ -13,6 +13,8 @@ public class EventManager : SingletonBehavior<EventManager>
     private GameObject[] AnimObjs = null;
     [SerializeField]
     private WelcomeAnim welcomeAnim = null;
+    [SerializeField]
+    private UC_Alert alertComponent = null;
 
     public Action StartArEvent = null;
     public Action OnArSessionActivated = null;
@@ -20,8 +22,9 @@ public class EventManager : SingletonBehavior<EventManager>
     public Action OnWelcomeAnimDone = null;
     public Action<RenderTexture> OnAnimRTUpdated = null;
     public Action OnCaptureBtnClicked = null;
+    public Action<string> OnAlertAction;
 
-    public Action OnUserInformationUpdated = null;
+    public Action<UserDataManager.UserData> OnUserDataUpdated = null;
 
     protected override void Awake()
     {
@@ -38,10 +41,21 @@ public class EventManager : SingletonBehavior<EventManager>
             elem.BindDelegates();
         }
 
+        alertComponent.BindDelegates();
+
         mainCanvas.transform.GetChild(0).gameObject.SetActive(true);
         mainCanvas.transform.GetChild(1).gameObject.SetActive(false);
         mainCanvas.transform.GetChild(2).gameObject.SetActive(false);
         mainCanvas.transform.GetChild(3).gameObject.SetActive(false);
+        alertComponent.gameObject.SetActive(false);
+    }
+
+    public void Alert(string text)
+    {
+        if(OnAlertAction != null)
+        {
+            OnAlertAction.Invoke(text);
+        }
     }
 
     public void ArSessionOn()
@@ -50,8 +64,14 @@ public class EventManager : SingletonBehavior<EventManager>
         {
             OnArSessionActivated.Invoke();
         }
-
+#if UNITY_STANDALONE_WIN
+        StartWelcomeAnim();
+        mainCanvas.transform.GetChild(2).gameObject.SetActive(true);
+#else
         mainCanvas.transform.GetChild(1).gameObject.SetActive(true);
+#endif
+
+
         AR_Objects.SetActive(true);
     }
 
