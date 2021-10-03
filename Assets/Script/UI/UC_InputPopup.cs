@@ -101,7 +101,7 @@ public class UC_InputPopup : UC_BaseComponent
             case InputState.company:
                 if (string.IsNullOrEmpty(inputCompany.text))
                 {
-                    EventManager.inst.Alert("家加阑 ");
+                    EventManager.inst.Alert("家加措切阑 ");
                     return;
                 }
 
