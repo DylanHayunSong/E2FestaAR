@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class WelcomeAnim : MonoBehaviour
 {
+    [Serializable]
+    private enum AnimState { allOnce, separate}
+
+    [SerializeField]
+    private ObjRoot[] roots;
+    
+
     [SerializeField]
     private Camera animCam = null;
     [SerializeField]
@@ -54,5 +61,28 @@ public class WelcomeAnim : MonoBehaviour
 
         //animCam.targetTexture = newRT;
         EventManager.inst.AnimRTUpdate(animCam.targetTexture);
+    }
+
+    private IEnumerator ShowAnimRoutine()
+    {
+        float duration = 1;
+        float time = 0;
+        while(time <= duration)
+        {
+
+
+
+            time += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+
+    [Serializable]
+    private struct ObjRoot
+    {
+        public GameObject objRoot;
+        [SerializeField]
+        public AnimState state;
     }
 }
