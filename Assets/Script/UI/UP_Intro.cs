@@ -46,6 +46,7 @@ public class UP_Intro : UP_BasePage
 
     private void Init()
     {
+        startEvent.gameObject.SetActive(false);
         inputPopup.gameObject.SetActive(false);
         startAR.gameObject.SetActive(false);
         video.Play();
@@ -64,6 +65,7 @@ public class UP_Intro : UP_BasePage
        if(!video.isPlaying && isVideoStarted)
         {
             video.gameObject.SetActive(false);
+            startEvent.gameObject.SetActive(true);
         }
     }
 

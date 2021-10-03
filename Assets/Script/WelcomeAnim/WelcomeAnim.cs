@@ -30,8 +30,8 @@ public class WelcomeAnim : MonoBehaviour
 
         //Invoke("AnimDone", 5);
 
-        SetWelcomeText(UserDataManager.inst.GetUserData().message);
-        SetNameText(UserDataManager.inst.GetUserData().userName);
+        //SetWelcomeText(UserDataManager.inst.GetUserData().message);
+        //SetNameText(UserDataManager.inst.GetUserData().userName);
 
     }
 
@@ -79,5 +79,7 @@ public class WelcomeAnim : MonoBehaviour
     {
         SetWelcomeText(UserDataManager.inst.GetUserData().message);
         SetNameText(UserDataManager.inst.GetUserData().userName);
+        WelcomeTextOn();
+        NameTextOn();
     }
 }
