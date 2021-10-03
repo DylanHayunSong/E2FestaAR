@@ -26,6 +26,9 @@ public class EventManager : SingletonBehavior<EventManager>
 
     public Action<UserDataManager.UserData> OnUserDataUpdated = null;
 
+    public Action<string> OnNameTextChanged = null;
+    public Action<string> OnWelcomeTextChanged = null;
+
     protected override void Awake()
     {
         base.Awake();

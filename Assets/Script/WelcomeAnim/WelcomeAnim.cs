@@ -1,24 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WelcomeAnim : MonoBehaviour
 {
-    [Serializable]
-    private enum AnimState { allOnce, separate}
-
-    [SerializeField]
-    private ObjRoot[] roots;
-    
-
     [SerializeField]
     private Camera animCam = null;
     [SerializeField]
-    private Text welcomeText = null;
+    private TextMeshProUGUI welcomeText;
     [SerializeField]
-    private Text nameText = null;
+    private TextMeshProUGUI nameText;
 
     private Camera originalMainCamera = null;
 
@@ -35,19 +29,25 @@ public class WelcomeAnim : MonoBehaviour
         SetAnimCamRT();
 
         //Invoke("AnimDone", 5);
+
+        SetWelcomeText(UserDataManager.inst.GetUserData().message);
+        SetNameText(UserDataManager.inst.GetUserData().userName);
+
     }
 
     public void SetWelcomeText (string text)
     {
-        welcomeText.text = text;
+        if (welcomeText != null)
+            welcomeText.text = text;
     }
 
     public void SetNameText (string text)
     {
-        nameText.text = text;
+        if (nameText != null)
+            nameText.text = text;
     }
 
-    public void AnimDone()
+    public void AnimDone ()
     {
         if (EventManager.inst.OnWelcomeAnimDone != null)
         {
@@ -55,7 +55,7 @@ public class WelcomeAnim : MonoBehaviour
         }
     }
 
-    private void SetAnimCamRT()
+    private void SetAnimCamRT ()
     {
         //RenderTexture newRT = new RenderTexture(Screen.width, (int)(Screen.height * 0.8f), 0);
 
@@ -63,26 +63,21 @@ public class WelcomeAnim : MonoBehaviour
         EventManager.inst.AnimRTUpdate(animCam.targetTexture);
     }
 
-    private IEnumerator ShowAnimRoutine()
+    public void WelcomeTextOn ()
     {
-        float duration = 1;
-        float time = 0;
-        while(time <= duration)
-        {
-
-
-
-            time += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
+        if (welcomeText != null)
+            welcomeText.gameObject.SetActive(true);
     }
 
-
-    [Serializable]
-    private struct ObjRoot
+    public void NameTextOn ()
     {
-        public GameObject objRoot;
-        [SerializeField]
-        public AnimState state;
+        if (nameText != null)
+            nameText.gameObject.SetActive(true);
+    }
+
+    public void ResetText()
+    {
+        SetWelcomeText(UserDataManager.inst.GetUserData().message);
+        SetNameText(UserDataManager.inst.GetUserData().userName);
     }
 }
