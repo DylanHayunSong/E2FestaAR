@@ -1,0 +1,1 @@
+To move your chosen blimp along an animated path, simply parent it to "Blimp_Anim_Path" in the Hierarchy window.

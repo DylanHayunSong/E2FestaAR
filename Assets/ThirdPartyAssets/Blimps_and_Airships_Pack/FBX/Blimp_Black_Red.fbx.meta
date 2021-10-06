@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: 73e9e9953d8bc97478db11b1e2a017c4
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Balloon
+    100002: Blimp
+    100004: //RootNode
+    100006: Blimp_Fin_01
+    100008: Blimp_Fin_02
+    100010: Blimp_Fin_03
+    100012: Blimp_Fin_04
+    100014: Blimp_Joins
+    100016: Prop_JoinA
+    100018: Prop_JoinB
+    100020: Propeller
+    100022: Screen
+    100024: Screen_Block
+    100026: Screen_Cables
+    100028: Screen_Side_A
+    100030: Screen_Side_B
+    400000: Balloon
+    400002: Blimp
+    400004: //RootNode
+    400006: Blimp_Fin_01
+    400008: Blimp_Fin_02
+    400010: Blimp_Fin_03
+    400012: Blimp_Fin_04
+    400014: Blimp_Joins
+    400016: Prop_JoinA
+    400018: Prop_JoinB
+    400020: Propeller
+    400022: Screen
+    400024: Screen_Block
+    400026: Screen_Cables
+    400028: Screen_Side_A
+    400030: Screen_Side_B
+    2300000: Blimp
+    2300002: Blimp_Fin_01
+    2300004: Blimp_Fin_02
+    2300006: Blimp_Fin_03
+    2300008: Blimp_Fin_04
+    2300010: Blimp_Joins
+    2300012: Prop_JoinA
+    2300014: Prop_JoinB
+    2300016: Propeller
+    2300018: Screen_Block
+    2300020: Screen_Cables
+    2300022: Screen_Side_A
+    2300024: Screen_Side_B
+    3300000: Blimp
+    3300002: Blimp_Fin_01
+    3300004: Blimp_Fin_02
+    3300006: Blimp_Fin_03
+    3300008: Blimp_Fin_04
+    3300010: Blimp_Joins
+    3300012: Prop_JoinA
+    3300014: Prop_JoinB
+    3300016: Propeller
+    3300018: Screen_Block
+    3300020: Screen_Cables
+    3300022: Screen_Side_A
+    3300024: Screen_Side_B
+    4300000: Prop_JoinA
+    4300002: Prop_JoinB
+    4300004: Blimp
+    4300006: Blimp_Fin_01
+    4300008: Blimp_Fin_02
+    4300010: Blimp_Fin_03
+    4300012: Blimp_Fin_04
+    4300014: Blimp_Joins
+    4300016: Screen_Cables
+    4300018: Screen_Block
+    4300020: Screen_Side_A
+    4300022: Screen_Side_B
+    4300024: Propeller
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 186.850006
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Balloon
+        weight: 1
+      - path: Balloon/Blimp
+        weight: 1
+      - path: Balloon/Blimp_Fin_01
+        weight: 1
+      - path: Balloon/Blimp_Fin_02
+        weight: 1
+      - path: Balloon/Blimp_Fin_03
+        weight: 1
+      - path: Balloon/Blimp_Fin_04
+        weight: 1
+      - path: Balloon/Blimp_Joins
+        weight: 1
+      - path: Balloon/Prop_JoinA
+        weight: 1
+      - path: Balloon/Prop_JoinB
+        weight: 1
+      - path: Balloon/Screen
+        weight: 1
+      - path: Balloon/Screen/Screen_Block
+        weight: 1
+      - path: Balloon/Screen/Screen_Cables
+        weight: 1
+      - path: Balloon/Screen/Screen_Side_A
+        weight: 1
+      - path: Balloon/Screen/Screen_Side_B
+        weight: 1
+      - path: Propeller
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
