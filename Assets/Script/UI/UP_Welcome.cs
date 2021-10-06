@@ -18,6 +18,8 @@ public class UP_Welcome : UP_BasePage
 
         EventManager.inst.OnWelcomeAnimDone += OnWelcomeAnimDone;
 
+        EventManager.inst.OnCaptureDone += OnCaptureDone;
+
         captureBtn.onClick.AddListener(OnClick_Capture);
 
         captureBtn.gameObject.SetActive(false);
@@ -35,7 +37,12 @@ public class UP_Welcome : UP_BasePage
 
     private void OnClick_Capture ()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         EventManager.inst.CaptureBtnClicked();
+    }
+
+    private void OnCaptureDone()
+    {
+        gameObject.SetActive(false);
     }
 }

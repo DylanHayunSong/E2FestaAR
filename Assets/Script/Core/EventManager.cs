@@ -22,7 +22,10 @@ public class EventManager : SingletonBehavior<EventManager>
     public Action OnWelcomeAnimDone = null;
     public Action<RenderTexture> OnAnimRTUpdated = null;
     public Action OnCaptureBtnClicked = null;
+    public Action OnCaptureDone = null;
     public Action<string> OnAlertAction;
+    public Action<string> OnCustomAlertAction;
+    public Action<byte[]> FileUploadReq;
 
     public Action<UserDataManager.UserData> OnUserDataUpdated = null;
 
@@ -110,6 +113,14 @@ public class EventManager : SingletonBehavior<EventManager>
         if(OnCaptureBtnClicked != null)
         {
             OnCaptureBtnClicked.Invoke();
+        }
+    }
+
+    public void CaptureDone()
+    {
+        if(OnCaptureDone != null)
+        {
+            OnCaptureDone.Invoke();
         }
     }
 }

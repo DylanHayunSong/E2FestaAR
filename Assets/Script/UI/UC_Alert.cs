@@ -13,9 +13,16 @@ public class UC_Alert : UC_BaseComponent
     public override void BindDelegates ()
     {
         EventManager.inst.OnAlertAction += AlertOn;
+        EventManager.inst.OnCustomAlertAction += CustomAlert;
     }
 
     private void AlertOn (string text)
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(AlertAnim(string.Format("{0}입력해주세요", text)));
+    }
+
+    private void CustomAlert(string text)
     {
         gameObject.SetActive(true);
         StartCoroutine(AlertAnim(text));
@@ -26,7 +33,7 @@ public class UC_Alert : UC_BaseComponent
         float time = 0;
         float duration = 0.5f;
 
-        txt.text = string.Format("{0}입력해주세요", text);
+        txt.text = string.Format(text);
         Color newImgColor = img.color;
         Color newTxtColor = txt.color;
         float imgColorAlpha;

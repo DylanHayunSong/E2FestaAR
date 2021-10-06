@@ -10,9 +10,9 @@ public class WelcomeAnim : MonoBehaviour
     [SerializeField]
     private Camera animCam = null;
     [SerializeField]
-    private TextMeshProUGUI welcomeText;
+    private Text welcomeText;
     [SerializeField]
-    private TextMeshProUGUI nameText;
+    private Text nameText;
 
     private Camera originalMainCamera = null;
 
@@ -30,8 +30,8 @@ public class WelcomeAnim : MonoBehaviour
 
         //Invoke("AnimDone", 5);
 
-        //SetWelcomeText(UserDataManager.inst.GetUserData().message);
-        //SetNameText(UserDataManager.inst.GetUserData().userName);
+        SetWelcomeText(UserDataManager.inst.GetUserData().message);
+        SetNameText(UserDataManager.inst.GetUserData().company + " " + UserDataManager.inst.GetUserData().userName);
 
     }
 

@@ -16,7 +16,7 @@ public class UP_Final : UP_BasePage
 
         gameObject.SetActive(false);
 
-        EventManager.inst.OnCaptureBtnClicked += () => { gameObject.SetActive(true); };
+        EventManager.inst.OnCaptureDone += () => { gameObject.SetActive(true); };
 
         GoSiteBtn.onClick.AddListener(OnClickGoSite);
         exitAppBtn.onClick.AddListener(OnClickExitApp);
