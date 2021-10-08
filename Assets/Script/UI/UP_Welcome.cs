@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class UP_Welcome : UP_BasePage
+public class UP_Welcome : UP_BasePage, IDragHandler
 {
     [SerializeField]
     private RawImage animVideo = null;
@@ -44,5 +45,21 @@ public class UP_Welcome : UP_BasePage
     private void OnCaptureDone()
     {
         gameObject.SetActive(false);
+    }
+
+    private void Update ()
+    {
+        
+    }
+
+    public void OnDrag (PointerEventData eventData)
+    {
+        if(eventData.pointerCurrentRaycast.gameObject == animVideo.gameObject)
+        {
+            if(EventManager.inst.OnDragAnim != null)
+            {
+                EventManager.inst.OnDragAnim.Invoke(eventData.delta.x * 0.001f);
+            }
+        }
     }
 }

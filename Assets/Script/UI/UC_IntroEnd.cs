@@ -9,6 +9,8 @@ public class UC_IntroEnd : UC_BaseComponent
     [SerializeField]
     private Button btn_intoAR = null;
     [SerializeField]
+    private Button btn_InputAgain = null;
+    [SerializeField]
     private Text nameInputText = null;
     [SerializeField]
     private Text companyInputText = null;
@@ -24,6 +26,7 @@ public class UC_IntroEnd : UC_BaseComponent
     public override void BindDelegates ()
     {
         btn_intoAR.onClick.AddListener(OnClick_StartEvent);
+        btn_InputAgain.onClick.AddListener(OnClick_InputAgain);
 
         EventManager.inst.OnUserDataUpdated += UpdateInputString;
     }
@@ -33,6 +36,14 @@ public class UC_IntroEnd : UC_BaseComponent
         if (StartEventAction != null)
         {
             StartEventAction.Invoke();
+        }
+    }
+
+    private void OnClick_InputAgain()
+    {
+        if(EventManager.inst.OnResetTextInputs != null)
+        {
+            EventManager.inst.OnResetTextInputs.Invoke();
         }
     }
 

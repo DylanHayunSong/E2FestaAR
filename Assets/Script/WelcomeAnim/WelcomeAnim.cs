@@ -13,6 +13,14 @@ public class WelcomeAnim : MonoBehaviour
     private Text welcomeText;
     [SerializeField]
     private Text nameText;
+    [SerializeField]
+    private GameObject rotateBone;
+
+    private Vector3 leftEular = new Vector3(-8.358f, -26.46f, -11.691f);
+    private Vector3 originEular = new Vector3(4.471f, 13.382f, -13.085f);
+    private Vector3 rightEular = new Vector3(13.07f, 45.177f, -8.148f);
+
+    public float currentEular = 0;
 
     private Camera originalMainCamera = null;
 
@@ -33,6 +41,8 @@ public class WelcomeAnim : MonoBehaviour
         SetWelcomeText(UserDataManager.inst.GetUserData().message);
         SetNameText(UserDataManager.inst.GetUserData().company + " " + UserDataManager.inst.GetUserData().userName);
 
+
+        EventManager.inst.OnWelcomeAnimDone += () => { EventManager.inst.OnDragAnim += SetEular; };
     }
 
     public void SetWelcomeText (string text)
@@ -75,11 +85,25 @@ public class WelcomeAnim : MonoBehaviour
             nameText.gameObject.SetActive(true);
     }
 
-    public void ResetText()
+    public void ResetText ()
     {
         SetWelcomeText(UserDataManager.inst.GetUserData().message);
         SetNameText(UserDataManager.inst.GetUserData().userName);
         WelcomeTextOn();
         NameTextOn();
+    }
+
+    private void SetEular (float newFloat)
+    {
+        currentEular += newFloat;
+        currentEular = Mathf.Clamp(currentEular, -1, 1);
+        if (currentEular <= 0)
+        {
+            rotateBone.transform.localEulerAngles = Vector3.Lerp(originEular, leftEular, -currentEular);
+        }
+        else
+        {
+            rotateBone.transform.localEulerAngles = Vector3.Lerp(originEular, rightEular, currentEular);
+        }
     }
 }

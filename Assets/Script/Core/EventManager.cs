@@ -23,9 +23,11 @@ public class EventManager : SingletonBehavior<EventManager>
     public Action<RenderTexture> OnAnimRTUpdated = null;
     public Action OnCaptureBtnClicked = null;
     public Action OnCaptureDone = null;
+    public Action OnResetTextInputs = null;
     public Action<string> OnAlertAction;
     public Action<string> OnCustomAlertAction;
     public Action<byte[]> FileUploadReq;
+    public Action<float> OnDragAnim = null;
 
     public Action<UserDataManager.UserData> OnUserDataUpdated = null;
 

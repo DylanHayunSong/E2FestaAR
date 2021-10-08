@@ -62,6 +62,8 @@ public class UC_InputPopup : UC_BaseComponent
     {
         nextBtn.onClick.AddListener(OnClickNext);
         inputContact.onValueChanged.AddListener(OnContactChanged);
+        EventManager.inst.OnResetTextInputs += ResetAllText;
+        EventManager.inst.OnResetTextInputs += () => { Enable(); };
 
         Init();
     }
@@ -192,6 +194,26 @@ public class UC_InputPopup : UC_BaseComponent
     public void Disable ()
     {
         disableAnimCoroutine = StartCoroutine(DisableRoutine());
+    }
+
+    private void ResetAllText()
+    {
+        Init();
+        inputState = InputState.name;
+        inputName.text = string.Empty;
+        inputCompany.text = string.Empty;
+        inputContact.text = string.Empty;
+        inputMessage.text = string.Empty;
+
+        nameIcon.GetComponentInChildren<RawImage>(true).gameObject.SetActive(false);
+        companyIcon.GetComponentInChildren<RawImage>(true).gameObject.SetActive(false);
+        contactIcon.GetComponentInChildren<RawImage>(true).gameObject.SetActive(false);
+        messageIcon.GetComponentInChildren<RawImage>(true).gameObject.SetActive(false);
+
+        inputName.interactable = true;
+        inputCompany.interactable = true;
+        inputContact.interactable = true;
+        inputMessage.interactable = true;
     }
 
     private IEnumerator EnableRoutine ()

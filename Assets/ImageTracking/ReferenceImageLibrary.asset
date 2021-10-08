@@ -45,3 +45,33 @@ MonoBehaviour:
     m_SpecifySize: 0
     m_Name: EmblemTest
     m_Texture: {fileID: 2800000, guid: 78adffe6ab62cd447a1fe2d59eedd56b, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5091206203729810643
+      m_GuidHigh: 15134985668026456996
+    m_SerializedTextureGuid:
+      m_GuidLow: 7017893321152569297
+      m_GuidHigh: 8024174357762596378
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Marker_Mid
+    m_Texture: {fileID: 2800000, guid: 0ee29fd190cb61641ade3c8210985b6f, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4745742844289338064
+      m_GuidHigh: 1443991257640999581
+    m_SerializedTextureGuid:
+      m_GuidLow: 5441695192998044553
+      m_GuidHigh: 7212546884287878024
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Marker_Big
+    m_Texture: {fileID: 2800000, guid: 5a996389c8f24b848853d4732d1d1864, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4860669192673175614
+      m_GuidHigh: 9190099405583980418
+    m_SerializedTextureGuid:
+      m_GuidLow: 4892141215513390625
+      m_GuidHigh: 12050895238392289288
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Marker_Big_OnlyText
+    m_Texture: {fileID: 2800000, guid: 0db92e21608443e40898d1f55e613da7, type: 3}

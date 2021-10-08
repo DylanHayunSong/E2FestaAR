@@ -8,6 +8,8 @@ using UnityEngine.Video;
 public class UP_Intro : UP_BasePage
 {
     [SerializeField]
+    private RawImage letterBox;
+    [SerializeField]
     private VideoPlayer video;
     [SerializeField]
     private UC_StartEventComponent startEvent;
@@ -46,6 +48,7 @@ public class UP_Intro : UP_BasePage
 
     private void Init()
     {
+        letterBox.gameObject.SetActive(true);
         startEvent.gameObject.SetActive(false);
         inputPopup.gameObject.SetActive(false);
         startAR.gameObject.SetActive(false);
@@ -64,6 +67,7 @@ public class UP_Intro : UP_BasePage
     {
        if(!video.isPlaying && isVideoStarted)
         {
+            letterBox.gameObject.SetActive(false);
             video.gameObject.SetActive(false);
             startEvent.gameObject.SetActive(true);
         }
