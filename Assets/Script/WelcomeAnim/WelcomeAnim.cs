@@ -16,9 +16,9 @@ public class WelcomeAnim : MonoBehaviour
     [SerializeField]
     private GameObject rotateBone;
 
-    private Vector3 leftEular = new Vector3(-8.358f, -26.46f, -11.691f);
-    private Vector3 originEular = new Vector3(4.471f, 13.382f, -13.085f);
-    private Vector3 rightEular = new Vector3(13.07f, 45.177f, -8.148f);
+    private Vector3 leftEular = new Vector3(177.819f, -28.31598f, 4.117004f); //new Vector3(-8.358f, -26.46f, -11.691f);
+    private Vector3 originEular = new Vector3(175.64f, -74.60001f, 1.257004f); //new Vector3(4.471f, 13.382f, -13.085f);
+    private Vector3 rightEular = new Vector3(176.081f, -118.041f, -2.098022f); //new Vector3(13.07f, 45.177f, -8.148f);
 
     public float currentEular = 0;
 
@@ -100,10 +100,12 @@ public class WelcomeAnim : MonoBehaviour
         if (currentEular <= 0)
         {
             rotateBone.transform.localEulerAngles = Vector3.Lerp(originEular, leftEular, -currentEular);
+            Debug.Log(Vector3.Lerp(originEular, leftEular, -currentEular));
         }
         else
         {
             rotateBone.transform.localEulerAngles = Vector3.Lerp(originEular, rightEular, currentEular);
+            Debug.Log(Vector3.Lerp(originEular, leftEular, -currentEular));
         }
     }
 }
