@@ -100,12 +100,10 @@ public class WelcomeAnim : MonoBehaviour
         if (currentEular <= 0)
         {
             rotateBone.transform.localEulerAngles = Vector3.Lerp(originEular, leftEular, -currentEular);
-            Debug.Log(Vector3.Lerp(originEular, leftEular, -currentEular));
         }
         else
         {
             rotateBone.transform.localEulerAngles = Vector3.Lerp(originEular, rightEular, currentEular);
-            Debug.Log(Vector3.Lerp(originEular, leftEular, -currentEular));
         }
     }
 }
